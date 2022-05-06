@@ -1,9 +1,13 @@
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../UI/Card';
 import React from "react";
 
 function ExpenseItem(props) {
+  
+  function myclick(){
+    console.log('Clicked');
+  }
 
   return (
 
@@ -13,8 +17,8 @@ function ExpenseItem(props) {
         <h2>{props.title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
+      <button onClick={myclick}>Click here</button>
     </Card>
-
   );
 }
 
