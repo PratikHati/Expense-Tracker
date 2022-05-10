@@ -3,55 +3,70 @@ import React, {useState} from 'react'
 
 function ExpenseForm() {
 
-    // const [enteredTitle, changedEnteredTitle] = useState('');
-    // const [enteredAmount,EnteredAmount] = useState('')
-    // const [enteredDate,EnteredDate] = useState('')
+    const [enteredTitle, EnteredTitle] = useState('');
+    const [enteredAmount,EnteredAmount] = useState('')
+    const [enteredDate,EnteredDate] = useState('')
 
-    const [enteredValue, changedValue] = useState({
-        enteredTitle:'',
-        enteredAmount:'',
-        enteredDate:''
-    });
+    // const [enteredValue, changedValue] = useState({
+    //     enteredTitle:'',
+    //     enteredAmount:'',
+    //     enteredDate:''
+    // });
 
     const titleChangeHandler = (event)=>{
-        //changedEnteredTitle(event.target.value);
-        changedValue({
-            ...enteredValue,                    //keep rest 2 as it is
-            enteredTitle: event.target.value    //update with new value
-        });
+        EnteredTitle(event.target.value);
+        // changedValue({
+        //     ...enteredValue,                    //keep rest 2 as it is
+        //     enteredTitle: event.target.value    //update with new value
+        // });
     };
 
     const amountChangeHandler = (event)=>{
-        //EnteredAmount(event.target.value);
-        changedValue({
-            ...enteredValue,                    //keep rest 2 as it is
-            enteredAmount: event.target.value    //update with new value
-        });
+        EnteredAmount(event.target.value);
+        // changedValue({
+        //     ...enteredValue,                    //keep rest 2 as it is
+        //     enteredAmount: event.target.value    //update with new value
+        // });
     };
 
     const dateChangeHandler = (event)=>{
-        //EnteredDate(event.target.value);
-        changedValue({
-            ...enteredValue,                    //keep rest 2 as it is
-            enteredDate: event.target.value    //update with new value
-        });
+        EnteredDate(event.target.value);
+        // changedValue({
+        //     ...enteredValue,                    //keep rest 2 as it is
+        //     enteredDate: event.target.value    //update with new value
+        // });
     };
 
+    const submitHandler = (event) =>{
+        event.preventDefault();     //inbuild in javascript
+        
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
+        };
+        
+        console.log(expenseData);
+        EnteredTitle('');
+        EnteredAmount('');
+        EnteredDate('');
+
+    }
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__controls'>
                     <label>enteredTitle</label>
-                    <input type='text' id='ip' onChange={titleChangeHandler}></input>
+                    <input type='text' id='ip' value={enteredTitle} onChange={titleChangeHandler}></input>
                 </div>
                 <div className='new-expense__controls'>
-                    <label>Amount</label>
-                    <input type='number' min="0.01" step="0.01" id='ip' onChange={amountChangeHandler}></input>
+                    <label>enteredAmount</label>
+                    <input type='number' min="0.01" step="0.01" id='ip' value={enteredAmount} onChange={amountChangeHandler}></input>
                 </div>
                 <div className='new-expense__controls'>
-                    <label>Date</label>
-                    <input type='date' min="2022-01-01" max="2025-01-01" id='ip' onChange={dateChangeHandler}></input>
+                    <label>enteredDate</label>
+                    <input type='date' min="2022-01-01" max="2025-01-01" id='ip' value={enteredDate} onChange={dateChangeHandler}></input>
                 </div>
             </div>
             <div className='new-expense__actions'>
