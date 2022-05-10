@@ -23,11 +23,15 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const myfunc = (fromNewExpense) =>{
+      console.log('data received in App.js');   //now it will print here instead of NewExpress.js
+  }
   return (
 
     // JSX SYNTAX
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense ={myfunc} ></NewExpense>
       <Expenses items={expenses}></Expenses>           
     </div>
 

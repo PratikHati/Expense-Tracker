@@ -1,14 +1,14 @@
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
-import React,{ useState} from "react";    //{ useState} is used for state concept if.e to reload a web page after being rendered
+import React, { useState } from "react";    //{ useState} is used for state concept if.e to reload a web page after being rendered
 
 function ExpenseItem(props) {
-  
-  const [title, setTitle] = useState(props.title);    //important as this array should have exactly 2 elements
-                                                      //one before update, another after update
 
-  function myclick(){
+  const [title, setTitle] = useState(props.title);    //important as this array should have exactly 2 elements
+  //one before update, another after update
+
+  function myclick() {
     setTitle('Updated!');       //when clicked, value will be changes as ExpenseItem() will reexecute 
     console.log(title);
   }
