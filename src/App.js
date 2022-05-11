@@ -26,12 +26,16 @@ function App() {
 
   const myfunc = (fromNewExpense) =>{
       console.log('data received in App.js');   //now it will print here instead of NewExpress.js
+      console.log(fromNewExpense);
   }
   return (
 
     // JSX SYNTAX
     <div>
-      <NewExpense onAddExpense ={myfunc} ></NewExpense>
+      {/* child to parent prop */}
+      <NewExpense onAddExpense ={myfunc} ></NewExpense> 
+      
+      {/* Parent to child prop*/}
       <Expenses items={expenses}></Expenses>           
     </div>
 

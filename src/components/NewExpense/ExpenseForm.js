@@ -48,6 +48,7 @@ function ExpenseForm(props) {
         
         //console.log(expenseData);
         props.onSaveExpenseData(expenseData);  //execute this pointer to NewExpense.js's 'onSaveExpenseHandler()'
+        //above line is just return statement in c++ or java but here we are calling parent .js's function() and passing returning data
         EnteredTitle('');
         EnteredAmount('');
         EnteredDate('');
@@ -57,15 +58,15 @@ function ExpenseForm(props) {
         <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__controls'>
-                    <label>enteredTitle</label>
+                    <label>Title</label>
                     <input type='text' id='ip' value={enteredTitle} onChange={titleChangeHandler}></input>
                 </div>
                 <div className='new-expense__controls'>
-                    <label>enteredAmount</label>
+                    <label>Amount</label>
                     <input type='number' min="0.01" step="0.01" id='ip' value={enteredAmount} onChange={amountChangeHandler}></input>
                 </div>
                 <div className='new-expense__controls'>
-                    <label>enteredDate</label>
+                    <label>Date</label>
                     <input type='date' min="2022-01-01" max="2025-01-01" id='ip' value={enteredDate} onChange={dateChangeHandler}></input>
                 </div>
             </div>
