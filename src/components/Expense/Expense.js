@@ -15,6 +15,8 @@ function Expenses(props) {
     <Card className='expenses'>
         <ExpensesFilter secondprop={year1} onChangeItem = {myfunc}></ExpensesFilter>
         {props.items.map(expense =><ExpenseItem 
+                                        //we have to add a identifier so that react can add new objects
+                                        key = {expense.Id}
                                         title={expense.title}
                                         amount={expense.amount}
                                         date={expense.date} >
