@@ -3,18 +3,22 @@ import Card from "../UI/Card";
 import React, {useState} from "react";
 import ExpensesFilter from "./ExpensesFilter";
 
-function Expenses(props) {
+function Expenses(props) {  //props contain all the data from parent
 
-    const [year1,year2]=useState('2020');
+    const [year1,year2] = useState('2020');
     const myfunc = year =>{
         // console.log(year);
         // console.log('Expense.js');
         year2(year);
     };
+
+    const filteredYear = props.items.filter( x => {
+        return x.date.getFullYear().toString() === year1;
+    });
     return(
     <Card className='expenses'>
         <ExpensesFilter secondprop={year1} onChangeItem = {myfunc}></ExpensesFilter>
-        {props.items.map(expense =><ExpenseItem 
+        {filteredYear.map(expense =><ExpenseItem 
                                         //we have to add a identifier so that react can add new objects
                                         key = {expense.Id}
                                         title={expense.title}
