@@ -14,15 +14,15 @@ function ExpenseItem(props) {
   // }
 
   return (
-
-    <Card className='expense-item'>              {/* Card is a custom component as a result 'Card's css will take precidence than 'expense-item' css*/}
-      <ExpenseDate date={props.date}></ExpenseDate>
-      <div className='expense-item__description'>
-        <h2>{props.title}</h2>
-        <div className='expense-item__price'>${props.amount}</div>
-      </div>
-      {/* <button onClick={myclick}>Click here</button> */}
-    </Card>
+    <li><Card className='expense-item'>              {/* Card is a custom component as a result 'Card's css will take precidence than 'expense-item' css*/}
+    <ExpenseDate date={props.date}></ExpenseDate>
+    <div className='expense-item__description'>
+      <h2>{props.title}</h2>
+      <div className='expense-item__price'>${props.amount}</div>
+    </div>
+    {/* <button onClick={myclick}>Click here</button> */}
+  </Card></li>
+    
   );
 }
 

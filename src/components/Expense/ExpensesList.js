@@ -3,7 +3,7 @@ import React from "react";
 import "./ExpensesList.css";
 
 const ExpensesList = props =>{
-    let variable = <p>No Expenses</p>;
+  
 
     if(props.items.length === 0){
         return (<h2 className="expenses-list__fallback">

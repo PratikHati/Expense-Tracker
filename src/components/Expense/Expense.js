@@ -1,4 +1,4 @@
-import ExpenseItem from "./ExpenseItem";
+
 import Card from "../UI/Card";
 import React, {useState} from "react";
 import ExpensesFilter from "./ExpensesFilter";
