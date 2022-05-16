@@ -12,19 +12,20 @@ function Expenses(props) {  //props contain all the data from parent
         year2(year);
     };
 
-    const filteredYear = props.items.filter( x => {
+    const filteredYearExpenses = props.items.filter( x => {
         return x.date.getFullYear().toString() === year1;
     });
     return(
     <Card className='expenses'>
         <ExpensesFilter secondprop={year1} onChangeItem = {myfunc}></ExpensesFilter>
-        {filteredYear.map(expense =><ExpenseItem 
+        {filteredYearExpenses.length === 0 ? <p>No Expenses</p> : filteredYearExpenses.map(expense =><ExpenseItem 
                                         //we have to add a identifier so that react can add new objects
                                         key = {expense.Id}
                                         title={expense.title}
                                         amount={expense.amount}
                                         date={expense.date} >
                                     </ExpenseItem>)}
+        
         {/* <ExpenseItem
             title={props.items[0].title}
             amount={props.items[0].amount}
@@ -32,7 +33,7 @@ function Expenses(props) {  //props contain all the data from parent
         <ExpenseItem
             title={props.items[1].title}
             amount={props.items[1].amount}
-            date={props.items[1].date} />
+            date={props.items[1].date} />   
         <ExpenseItem
             title={props.items[2].title}    
             amount={props.items[2].amount}
