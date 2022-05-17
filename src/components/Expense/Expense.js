@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import React, {useState} from "react";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpenseChart from "./ExpensesChart";
 
 function Expenses(props) {  //props contain all the data from parent
 
@@ -22,7 +23,7 @@ function Expenses(props) {  //props contain all the data from parent
     return(
     <Card className='expenses'>
         <ExpensesFilter secondprop={year1} onChangeItem = {myfunc}></ExpensesFilter>
-        
+        <ExpenseChart expenses= {filteredYearExpenses}></ExpenseChart>
         <ExpensesList items = {filteredYearExpenses}></ExpensesList>
         {/* <ExpenseItem
             title={props.items[0].title}
